@@ -4,8 +4,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:background="@color/teal_500"
+    android:gravity="center"
     android:orientation="horizontal"
     android:padding="@dimen/padding_app"
     tools:context=".MainActivity">
