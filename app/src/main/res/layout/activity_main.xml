@@ -1,19 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/teal_500"
+    android:orientation="horizontal"
+    android:padding="@dimen/padding_app"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageButton
+        android:id="@+id/previous_img_btn"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_weight="1"
+        android:background="@drawable/custom_btn_shape"
+        android:contentDescription="@string/previous_img_description"
+        android:paddingVertical="@dimen/padding_btn_vertical"
+        android:src="@drawable/ic_previous_24" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageButton
+        android:id="@+id/toggle_playback_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_btn_horizontal"
+        android:layout_weight="1"
+        android:background="@drawable/custom_btn_shape"
+        android:contentDescription="@string/play_img_description"
+        android:paddingVertical="@dimen/padding_btn_vertical"
+        android:src="@drawable/ic_play_24" />
+
+    <ImageButton
+        android:id="@+id/next_img_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/custom_btn_shape"
+        android:contentDescription="@string/next_img_description"
+        android:paddingVertical="@dimen/padding_btn_vertical"
+        android:src="@drawable/ic_next_24" />
+
+</LinearLayout>
