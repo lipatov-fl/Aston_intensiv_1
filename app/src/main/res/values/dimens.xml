@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_app">16dp</dimen>
+    <dimen name="padding_btn_vertical">15dp</dimen>
+    <dimen name="margin_btn_horizontal">10dp</dimen>
+</resources>

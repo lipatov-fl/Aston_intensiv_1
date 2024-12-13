@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AstonIntensiv1</string>
+    <string name="next_img_description">Cледующий</string>
+    <string name="previous_img_description">Предыдущий</string>
+    <string name="play_img_description">Играть</string>
+</resources>
