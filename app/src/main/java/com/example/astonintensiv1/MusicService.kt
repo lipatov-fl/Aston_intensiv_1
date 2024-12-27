@@ -1,14 +1,11 @@
 package com.example.astonintensiv1
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
 import android.app.PendingIntent
 import android.app.Service
 import android.content.Intent
 import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Binder
-import android.os.Build
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
@@ -27,7 +24,6 @@ class MusicService : Service() {
         mediaPlayer.setOnCompletionListener {
             nextSong()
         }
-        createNotificationChannel()
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
@@ -40,18 +36,6 @@ class MusicService : Service() {
             }
         }
         return START_STICKY
-    }
-
-    private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channel = NotificationChannel(
-                "music_service_channel",
-                "Music Service Channel",
-                NotificationManager.IMPORTANCE_LOW
-            )
-            val manager = getSystemService(NotificationManager::class.java)
-            manager.createNotificationChannel(channel)
-        }
     }
 
     private fun showNotification() {
@@ -111,13 +95,13 @@ class MusicService : Service() {
     }
 
     fun playMusic() {
-        try {
-            if (!::mediaPlayer.isInitialized) {
-                mediaPlayer = MediaPlayer()
-                mediaPlayer.setOnCompletionListener {
-                    nextSong()
-                }
+        if (!::mediaPlayer.isInitialized) {
+            mediaPlayer = MediaPlayer()
+            mediaPlayer.setOnCompletionListener {
+                nextSong()
             }
+        }
+        try {
             mediaPlayer.reset()
             mediaPlayer.setDataSource(
                 applicationContext,

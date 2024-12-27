@@ -11,6 +11,10 @@ import com.example.astonintensiv1.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        private const val KEY_IS_PLAYING = "isPlaying"
+    }
+
     private lateinit var binding: ActivityMainBinding
     private lateinit var musicService: MusicService
     private var isBound = false
@@ -34,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (savedInstanceState != null) {
-            isPlaying = savedInstanceState.getBoolean("isPlaying", false)
+            isPlaying = savedInstanceState.getBoolean(KEY_IS_PLAYING, false)
             if (isPlaying) {
                 binding.togglePlaybackBtn.setImageResource(R.drawable.ic_pause_24)
             } else {
@@ -84,14 +88,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putBoolean("isPlaying", isPlaying)
+        outState.putBoolean(KEY_IS_PLAYING, isPlaying)
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        if (isBound) {
-            unbindService(connection)
-            isBound = false
-        }
+        unbindService(connection)
     }
 }
+
